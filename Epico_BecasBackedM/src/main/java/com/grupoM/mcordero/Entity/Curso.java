@@ -2,22 +2,24 @@ package com.grupoM.mcordero.Entity;
 
 import java.io.Serializable;
 
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.sun.istack.NotNull;
+
 //import org.springframework.data.annotation.Id;
 
-import com.sun.istack.NotNull;
+
 
 
 
 @Entity
-@Table(name = "curso")
+@Table(name = "cursos")
 public class Curso implements Serializable {
-
 
 	private static final long serialVersionUID = 1L;
 	
@@ -32,6 +34,14 @@ public class Curso implements Serializable {
 	
 	@NotNull
 	private String descripcion;
+	
+	
+	private int numero_horas;
+	
+	
+	private int id_profesor;
+	
+	
 	
 	public long getId() {
 		return id;
@@ -73,27 +83,25 @@ public class Curso implements Serializable {
 		this.numero_horas = numero_horas;
 	}
 
-	public String getCedula() {
-		return cedula;
+	public int getId_profesor() {
+		return id_profesor;
 	}
 
-	public void setCedula(String cedula) {
-		this.cedula = cedula;
+	public void setId_profesor(int id_profesor) {
+		this.id_profesor = id_profesor;
 	}
-
-	@NotNull
-	private int numero_horas;
 	
-	@NotNull
-	private String cedula;
+	
 
-	public Curso(String codigo, String nombre, String descripcion, int numero_horas, String cedula) {
+	
+
+	public Curso(String codigo, String nombre, String descripcion, int numero_horas, int id_profesor) {
 		super();
 		this.codigo = codigo;
 		this.nombre = nombre;
 		this.descripcion = descripcion;
 		this.numero_horas = numero_horas;
-		this.cedula = cedula;
+		this.id_profesor = id_profesor;
 	}
 
 	public Curso() {

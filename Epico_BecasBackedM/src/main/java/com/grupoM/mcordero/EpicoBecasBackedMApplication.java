@@ -10,7 +10,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @EnableAutoConfiguration
 
 @SpringBootApplication
-@ComponentScan//(basePackages={"com.grupoM.mcordero.domain","com.grupoM.mcordero.Entity","com.grupoM.mcordero.Repositories","com.grupoM.mcordero.Services"})
+@ComponentScan(basePackages={"com.grupoM.mcordero.domain","com.grupoM.mcordero.Entity","com.grupoM.mcordero.Repositories","com.grupoM.mcordero.Services"})
 public class EpicoBecasBackedMApplication {
 
 	public static void main(String[] args) {

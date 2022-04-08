@@ -1,5 +1,6 @@
 package com.grupoM.mcordero.Services;
 
+//import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +33,9 @@ public class RequisitoServicesImpl implements IRequisitoServices {
 	@Override
 	public void put(Requisito requisito, long id) {
 		requisitoRepository.findById(id).ifPresent((x) -> {
+			
+			//requisito.setCreated_at(new Date() );
+			//requisito.setUpdated_at(new Date() );
 			requisito.setId(id);
 			requisitoRepository.save(requisito);
 		});

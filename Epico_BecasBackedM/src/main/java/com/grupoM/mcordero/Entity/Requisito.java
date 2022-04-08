@@ -8,6 +8,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+
+
+
 //import org.springframework.data.annotation.Id;
 
 import com.sun.istack.NotNull;
@@ -17,8 +20,9 @@ import com.sun.istack.NotNull;
 //@SuppressWarnings("serial")
 //@Data
 
+
 @Entity
-@Table(name = "requisito")
+@Table(name = "requisitos")
 
 public class Requisito implements Serializable {
 
@@ -30,6 +34,17 @@ public class Requisito implements Serializable {
 
 	@NotNull
 	private String descripcion;
+	
+
+	
+
+	
+	public Requisito(String descripcion) {
+		super();
+		this.descripcion = descripcion;
+		
+	}
+	
 
 	public long getId() {
 		return id;
@@ -46,11 +61,9 @@ public class Requisito implements Serializable {
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
-
-	public Requisito(String descripcion) {
-		super();
-		this.descripcion = descripcion;
-	}
+	
+	
+	
 
 	public Requisito() {
 	}
