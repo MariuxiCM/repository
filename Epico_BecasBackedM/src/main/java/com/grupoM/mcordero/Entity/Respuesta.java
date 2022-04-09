@@ -8,14 +8,13 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 
-import javax.persistence.ManyToOne;
 
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 
@@ -46,12 +45,24 @@ public class Respuesta implements Serializable {
 
 	
 	//@Column(name="id_pregunta")
-	//	private int id_pregunta;
-	
+	//private int id_pregunta;
+
+	/*
 	 @ManyToOne(fetch = FetchType.LAZY, optional = false)
 	    @JoinColumn(name = "pregunta_id", nullable = false)
 	    private Pregunta pregunta;
 
+	@ManyToOne()
+	@JoinColumn(name = "pregunta_id")
+    @OneToOne(fetch = FetchType.LAZY)
+    private Pregunta pregunta;
+    */
+	
+		@OneToOne
+	    @JoinColumn(name = "preguntas" , referencedColumnName = "id")
+	    private Pregunta pregunta;
+	
+	
 
 public Respuesta() {
 		

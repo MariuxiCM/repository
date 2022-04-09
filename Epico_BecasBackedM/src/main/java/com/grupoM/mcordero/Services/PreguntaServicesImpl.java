@@ -3,10 +3,12 @@ package com.grupoM.mcordero.Services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.grupoM.mcordero.Entity.Pregunta;
 import com.grupoM.mcordero.Repositories.IPreguntaRepository;
 
+@Service
 public class PreguntaServicesImpl implements IPreguntaServices {
 	
 	//private final Logger LOGGER = LoggerFactory.getLogger(IPreguntaServices.class);

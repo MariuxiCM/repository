@@ -5,9 +5,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.Modifying;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -22,10 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.grupoM.mcordero.Entity.Pregunta;
 import com.grupoM.mcordero.Repositories.IPreguntaRepository;
-import com.grupoM.mcordero.Services.ICursoServices;
-import com.grupoM.mcordero.Services.IPreguntaServices;
-import com.grupoM.mcordero.Services.IRespuestaServices;
-import com.grupoM.mcordero.Services.PreguntaServicesImpl;
+
 
 
 
@@ -94,17 +89,21 @@ public class PreguntaController {
 
 	
 	//ELIMINAR pregunta
+	
 	@DeleteMapping("/preguntas/{id}")
-	public void delete(@PathVariable Long id) {
-		
+	public void delete(@PathVariable("id") long id) {
+
 		if (preguntaRepository.existsById(id)) {
 			preguntaRepository.deleteById(id);
 		}
 		//this.preguntaRepository.deleteById(id);
+		
 	}
-	
 
 	
+	
+	
+		
 
 	
 }

@@ -2,7 +2,7 @@ package com.grupoM.mcordero.Entity;
 
 import java.io.Serializable;
 //import java.util.Date;
-
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -14,9 +14,13 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
 
 
 
@@ -48,7 +52,27 @@ public class Pregunta implements Serializable {
 	@OneToMany(mappedBy = "pregunta", fetch = FetchType.LAZY,
             cascade = CascadeType.ALL)
     private Set<Respuesta> respuestas;
+
 	
+	/*
+	@OneToMany(mappedBy = "pregunta", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Respuesta> respuesta;
+	
+	
+	
+	
+	 
+    @ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private Respuesta respuesta;
+	*/
+   
+    @ManyToMany
+    @JoinTable(name = "encuestas_preguntas",
+    		   joinColumns = @JoinColumn(name = "encuesta_id"),
+    		   inverseJoinColumns = @JoinColumn(name = "pregunta_id")
+    		  )
+    private List<Encuesta> encuestas;
+
 	
 	public Pregunta() {
 		
