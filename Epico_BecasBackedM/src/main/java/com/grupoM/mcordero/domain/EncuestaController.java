@@ -1,7 +1,7 @@
 package com.grupoM.mcordero.domain;
 
 import java.util.List;
-import java.util.Optional;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -36,12 +36,12 @@ public class EncuestaController {
 	}
 
 	@GetMapping("/encuestas/{id}")
-	//public ResponseEntity<Encuesta> getOne(@PathVariable(value = "id") Long id) {
-		//Encuesta encuesta = encuestaRepository.findById(id)
-			//	.orElseThrow(() -> new ResourceNotFoundException("Not found Encuesta with id = " + id));
-	//	return new ResponseEntity<>(encuesta, HttpStatus.OK);
+	public ResponseEntity<Encuesta> getOne(@PathVariable(value = "id") Long id) {
+		Encuesta encuesta = encuestaRepository.findById(id)
+				.orElseThrow();
+		return new ResponseEntity<>(encuesta, HttpStatus.OK);
 	
-	//}
+	}
 
 	@PostMapping("/encuesta")
 	public Encuesta add(@RequestBody Encuesta encuesta) {

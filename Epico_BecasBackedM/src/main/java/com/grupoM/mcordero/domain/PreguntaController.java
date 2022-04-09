@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+
 import com.grupoM.mcordero.Entity.Pregunta;
 import com.grupoM.mcordero.Repositories.IPreguntaRepository;
 
@@ -43,7 +44,7 @@ public class PreguntaController {
 	//LISTAR TODAS
 				
 		@GetMapping("/preguntas")
-		public List<Pregunta> getAllcursos() {
+		public List<Pregunta> getPreguntas(){
 			return this.preguntaRepository.findAll();
 		}
 				
@@ -72,10 +73,11 @@ public class PreguntaController {
 	}
 	
 	//ACTUALIZAR pregunta
+	
 	@PutMapping("/preguntas/{id}")
 	public ResponseEntity<Pregunta> updatePregunta(@PathVariable("id") long id, @RequestBody Pregunta pregunta) {
 		Optional<Pregunta> preguntaData = preguntaRepository.findById(id);
-	    if (preguntaData.isPresent()) {
+		  if (preguntaData.isPresent()) {
 	      Pregunta _pregunta = preguntaData.get();
 	      _pregunta.setEnunciado(pregunta.getEnunciado());
 	      _pregunta.setTipo(pregunta.getTipo());
@@ -84,19 +86,24 @@ public class PreguntaController {
 	    } else {
 	      return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 	    }
-	  }
+	   
+	  } 
+	
+
+	
 	
 
 	
 	//ELIMINAR pregunta
 	
 	@DeleteMapping("/preguntas/{id}")
-	public void delete(@PathVariable("id") long id) {
-
+	public void delete(@PathVariable Long id) {
+/*
 		if (preguntaRepository.existsById(id)) {
 			preguntaRepository.deleteById(id);
 		}
-		//this.preguntaRepository.deleteById(id);
+		*/
+		this.preguntaRepository.deleteById(id);
 		
 	}
 

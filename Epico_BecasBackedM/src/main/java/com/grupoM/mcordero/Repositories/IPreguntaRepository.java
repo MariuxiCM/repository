@@ -1,8 +1,5 @@
 package com.grupoM.mcordero.Repositories;
 
-
-
-
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -31,4 +28,5 @@ public interface IPreguntaRepository extends JpaRepository<Pregunta, Long> {
 	    //"LIKE '%MXL%'
 	     * 
 	     * */
+
 }
